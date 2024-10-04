@@ -1,0 +1,47 @@
+plugins {
+    id "io.freefair.lombok" version "8.4"
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'eclipse'
+}
+
+group = 'de.ochmanski'
+version = '0.0.1'
+
+dependencies {
+    implementation(
+            'javax.validation:validation-api:2.0.1.Final',
+            'org.jetbrains:annotations:24.0.1',
+            'com.google.code.findbugs:jsr305:3.0.2',
+            'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    )
+    testImplementation(
+            'org.mockito:mockito-core:5.7.0',
+            'org.mockito:mockito-junit-jupiter:5.3.1',
+            'org.assertj:assertj-core:3.23.1',
+            'org.junit.jupiter:junit-jupiter:5.9.3'
+    )
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+// <editor-fold defaultstate="collapsed" desc="idea plugin">
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+// </editor-fold>
