@@ -9,9 +9,9 @@ release.properties
 # Gradle
 .gradle/
 build/
-#gradle/wrapper/gradle-wrapper.jar
-#gradlew
-#gradlew.bat
+gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
 
 # Eclipse
 .project
